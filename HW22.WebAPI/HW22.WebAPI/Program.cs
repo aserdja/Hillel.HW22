@@ -14,6 +14,7 @@ builder.Services.AddControllers(options =>
 {
 	options.Filters.Add<ExceptionFilter>();
 });
+builder.Services.AddResponseCaching();
 
 var app = builder.Build();
 
@@ -25,6 +26,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseResponseCaching();
 
 app.UseAuthorization();
 
