@@ -1,4 +1,5 @@
 using HW22.WebAPI.Data;
+using HW22.WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddControllers(options =>
+{
+	options.Filters.Add<ExceptionFilter>();
+});
 
 var app = builder.Build();
 
