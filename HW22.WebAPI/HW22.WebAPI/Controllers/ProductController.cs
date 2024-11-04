@@ -35,6 +35,7 @@ namespace HW22.WebAPI.Controllers
 
 
 		[HttpGet]
+		[ResponseCache(Duration = 30)]
 		public async Task<IActionResult> GetAllAsync()
 		{
 			try
